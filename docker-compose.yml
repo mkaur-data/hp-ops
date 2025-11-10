@@ -1,0 +1,137 @@
+# hp-ops platform — ops-singapore-01
+# sarah, 2025-11-10: initial
+# sarah, 2026-02-20: added jupyter + sink
+
+version: "3.8"
+
+services:
+  cowrie:
+    image: cowrie/cowrie:latest
+    container_name: cowrie
+    restart: unless-stopped
+    ports:
+      - "22:2222"
+    volumes:
+      - cowrie_logs:/home/cowrie/cowrie/log
+      - cowrie_downloads:/home/cowrie/cowrie/dl
+      - ./configs/cowrie:/home/cowrie/cowrie/etc
+    networks:
+      - honeypot_net
+    environment:
+      - TZ=Asia/Singapore
+
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - ./configs/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./configs/nginx/certs:/etc/nginx/certs:ro
+    depends_on:
+      - dashboard
+      - analytics
+    networks:
+      - ops_net
+
+  dashboard:
+    build: ./services/dashboard
+    container_name: dashboard
+    restart: unless-stopped
+    expose:
+      - "5000"
+    volumes:
+      - ./configs:/app/configs:ro
+    environment:
+      - FLASK_ENV=production
+      - SENSOR_REGISTRY=/app/configs/sensor_registry.json
+    networks:
+      - ops_net
+      - telemetry_net
+
+  analytics:
+    build: ./services/analytics
+    container_name: analytics
+    restart: unless-stopped
+    expose:
+      - "5601"
+    environment:
+      - ES_HOST=http://fake-es:9200
+      - TELEMETRY_ENDPOINT=http://collector:9090/ingest
+    networks:
+      - ops_net
+      - telemetry_net
+
+  fake-es:
+    build: ./services/fake-es
+    container_name: fake-es
+    restart: unless-stopped
+    expose:
+      - "9200"
+    environment:
+      - DATA_DIR=/app/data
+      - TZ=Asia/Singapore
+    volumes:
+      - es_data:/app/data
+    networks:
+      - ops_net
+
+  collector:
+    build: ./services/collector
+    container_name: collector
+    restart: unless-stopped
+    expose:
+      - "9090"
+    volumes:
+      - telemetry_data:/app/data
+    environment:
+      - TZ=Asia/Singapore
+      - CORRELATION_WINDOW_MIN=120
+    networks:
+      - telemetry_net
+
+  jupyter:
+    build: ./services/jupyter
+    container_name: jupyter
+    restart: unless-stopped
+    expose:
+      - "8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - cowrie_logs:/data/cowrie:ro
+    environment:
+      - JUPYTER_TOKEN=hpops-nb-2026
+    networks:
+      - ops_net
+
+  sink:
+    build: ./services/sink
+    container_name: sink
+    restart: unless-stopped
+    expose:
+      - "9000"
+    volumes:
+      - sink_data:/app/data
+    environment:
+      - TZ=Asia/Singapore
+    networks:
+      - telemetry_net
+
+volumes:
+  cowrie_logs:
+  cowrie_downloads:
+  es_data:
+  telemetry_data:
+  sink_data:
+
+networks:
+  honeypot_net:
+    driver: bridge
+  ops_net:
+    driver: bridge
+    internal: true
+  telemetry_net:
+    driver: bridge
+    internal: true
