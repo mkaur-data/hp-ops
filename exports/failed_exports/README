@@ -1,0 +1,7 @@
+exports that failed validation or had issues
+keeping here for debugging, delete when confirmed safe
+
+cowrie-weekly-2026-02-24.ndjson — truncated at 1847 sessions (of ~2400). ES OOM during scroll.
+  increased heap to 2g, hasnt happened since
+cowrie-weekly-2026-03-03.ndjson — missing sensor-eu-01 data. realized eu-01 was already flaky
+  before it went fully offline on the 12th. data probably lost.
