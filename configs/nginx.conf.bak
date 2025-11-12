@@ -1,0 +1,28 @@
+# nginx config backup from before we added analytics proxy
+# sarah 2026-01-15
+# keeping this in case the new config breaks something
+
+worker_processes auto;
+events { worker_connections 1024; }
+
+http {
+    # old config only had dashboard on 8080
+    # now we also proxy 5601 → analytics and 8888 → jupyter
+    upstream dashboard {
+        server dashboard:5000;
+    }
+    server {
+        listen 443 ssl;
+        ssl_certificate /etc/nginx/certs/server.crt;
+        ssl_certificate_key /etc/nginx/certs/server.key;
+        location / {
+            proxy_pass http://dashboard;
+        }
+    }
+    server {
+        listen 8080;
+        location / {
+            proxy_pass http://dashboard;
+        }
+    }
+}

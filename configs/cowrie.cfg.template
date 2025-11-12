@@ -1,0 +1,22 @@
+# Cowrie config template — pushed to sensors by deploy_sensor.sh
+# Values with ${VAR} are replaced at deploy time
+
+[honeypot]
+hostname = ${SENSOR_HOSTNAME}
+log_path = /opt/cowrie/var/log
+download_path = /opt/cowrie/var/lib/cowrie/downloads
+contents_path = /opt/cowrie/honeyfs
+
+[ssh]
+listen_endpoints = tcp:2222:interface=0.0.0.0
+version = SSH-2.0-OpenSSH_9.2p1 Debian-2+deb12u2
+
+[output_jsonlog]
+logfile = /opt/cowrie/var/log/cowrie/cowrie.json
+epoch_timestamp = false
+
+[output_hpfeeds]
+# disabled for now, ewsposter handles submission
+enabled = false
+
+# auth config is per-sensor (userdb.txt deployed separately)
