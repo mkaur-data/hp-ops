@@ -1,0 +1,62 @@
+Node 4 Verification — 2026-03-27 06:00:01 SGT
+─────────────────────────────────────
+[PASS] cowrie running
+[PASS] nginx running
+[PASS] dashboard running
+[PASS] analytics running
+[PASS] jupyter running
+[PASS] sink running
+[PASS] port 22 open
+[PASS] port 443 open
+[PASS] port 5601 open
+[PASS] port 8080 open
+[PASS] port 8888 open
+[PASS] egress blocked (tcp/4444)
+[PASS] egress blocked (tcp/22)
+[PASS] cowrie.json exists
+[PASS] telemetry collecting (7841 events)
+[WARN] disk usage (46%) — approaching 50% threshold
+[PASS] management SSH (22222)
+Summary: 16 pass / 1 warn / 0 fail
+─────────────────────────────────────
+Node 4 Verification — 2026-03-27 18:00:01 SGT
+─────────────────────────────────────
+[PASS] cowrie running
+[PASS] nginx running
+[PASS] dashboard running
+[PASS] analytics running
+[PASS] jupyter running
+[PASS] sink running
+[PASS] port 22 open
+[PASS] port 443 open
+[PASS] port 5601 open
+[PASS] port 8080 open
+[PASS] port 8888 open
+[PASS] egress blocked (tcp/4444)
+[PASS] egress blocked (tcp/22)
+[PASS] cowrie.json exists
+[PASS] telemetry collecting (8142 events)
+[PASS] disk usage (43%) — cleanup ran at 03:00
+[PASS] management SSH (22222)
+Summary: 17 pass / 0 warn / 0 fail
+─────────────────────────────────────
+Node 4 Verification — 2026-03-28 06:00:01 SGT
+─────────────────────────────────────
+[PASS] cowrie running
+[PASS] nginx running
+[PASS] dashboard running
+[PASS] analytics running
+[PASS] jupyter running
+[PASS] sink running
+[PASS] port 22 open
+[PASS] port 443 open
+[PASS] port 5601 open
+[PASS] port 8080 open
+[PASS] port 8888 open
+[PASS] egress blocked (tcp/4444)
+[PASS] egress blocked (tcp/22)
+[PASS] cowrie.json exists
+[PASS] telemetry collecting (8472 events)
+[PASS] disk usage (41%)
+[PASS] management SSH (22222)
+Summary: 17 pass / 0 warn / 0 fail

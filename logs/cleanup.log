@@ -1,0 +1,24 @@
+[2026-03-25T03:00:01+08:00] cleanup started
+[2026-03-25T03:00:01+08:00] cowrie.json 87MB — below threshold, skipping rotation
+[2026-03-25T03:00:02+08:00] purging tty logs older than 30d: removed 712 files (987MB)
+[2026-03-25T03:00:02+08:00] purging download cache older than 14d: removed 18 files (31MB)
+[2026-03-25T03:00:02+08:00] disk before: 47% | disk after: 45%
+[2026-03-25T03:00:02+08:00] cleanup done
+[2026-03-26T03:00:01+08:00] cleanup started
+[2026-03-26T03:00:01+08:00] cowrie.json 98MB — below threshold, skipping rotation
+[2026-03-26T03:00:02+08:00] purging tty logs older than 30d: removed 204 files (312MB)
+[2026-03-26T03:00:02+08:00] purging download cache older than 14d: removed 7 files (12MB)
+[2026-03-26T03:00:02+08:00] disk before: 45% | disk after: 44%
+[2026-03-26T03:00:02+08:00] cleanup done
+[2026-03-27T03:00:01+08:00] cleanup started
+[2026-03-27T03:00:01+08:00] rotating cowrie.json (112MB → archived as cowrie.json.2026-03-26.gz)
+[2026-03-27T03:00:03+08:00] purging tty logs older than 30d: removed 641 files (891MB)
+[2026-03-27T03:00:03+08:00] purging download cache older than 14d: removed 11 files (24MB)
+[2026-03-27T03:00:03+08:00] disk before: 46% | disk after: 43%
+[2026-03-27T03:00:03+08:00] cleanup done
+[2026-03-28T03:00:01+08:00] cleanup started
+[2026-03-28T03:00:01+08:00] rotating cowrie.json (143MB → archived as cowrie.json.2026-03-27.gz)
+[2026-03-28T03:00:03+08:00] purging tty logs older than 30d: removed 847 files (1.2GB)
+[2026-03-28T03:00:04+08:00] purging download cache older than 14d: removed 23 files (47MB)
+[2026-03-28T03:00:04+08:00] disk before: 44% | disk after: 41%
+[2026-03-28T03:00:04+08:00] cleanup done
