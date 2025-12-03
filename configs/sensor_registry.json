@@ -1,1 +1,1 @@
-{"fleet_name":"hp-ops-fleet","sensors":[{"id":"sensor-us-01","hostname":"sensor-us-01.ops.internal","location":"US-Central","status":"active","deployed_at":"2025-11-12T09:00:00Z"}]}
+{"fleet_name":"hp-ops-fleet","sensors":[{"id":"sensor-us-01","hostname":"sensor-us-01.ops.internal","location":"US-Central","status":"active","deployed_at":"2025-11-12T09:00:00Z"},{"id":"sensor-eu-01","hostname":"sensor-eu-01.ops.internal","location":"EU-West (Falkenstein)","status":"active","deployed_at":"2025-12-03T11:00:00Z"}]}
