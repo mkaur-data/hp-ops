@@ -1,1 +1,2 @@
 {"fleet_name":"hp-ops-fleet","sensors":[{"id":"sensor-us-01","hostname":"sensor-us-01.ops.internal","location":"US-Central","status":"active","deployed_at":"2025-11-12T09:00:00Z"},{"id":"sensor-eu-01","hostname":"sensor-eu-01.ops.internal","location":"EU-West (Falkenstein)","status":"offline","deployed_at":"2025-12-03T11:00:00Z"},{"id":"sensor-apac-01","hostname":"sensor-apac-01.ops.internal","location":"APAC (Tokyo)","status":"active","deployed_at":"2026-02-28T14:00:00Z"}]}
+# heartbeat tuned 2026-03-12
